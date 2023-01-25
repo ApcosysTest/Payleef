@@ -43,7 +43,7 @@
                 <a class=" list-group-item list-group-item-action list-group-item-light p-3 border-top" href="/homepage"> Home</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companySetup">Company Setup</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companyInformation">Company Information</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
+                <a class=" list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
                 <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/employeeInformation">Employee Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
@@ -64,7 +64,76 @@
                     <button class="btn" id="sidebarToggle"><span class="navbar-toggler-icon"></span></button>
                 </div>
             </nav>
-            <div>EmpInfo</div>
+            <div class="container-fluid companySetup">
+                <h5>Welcome to Payroll Management System</h5><br><br>
+                <div class="container box">
+                    <h6>Add Employee</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="inputField">
+                                <input type="text" placeholder="Employee Code">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Employee Name">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Employee PAN">
+                            </div>
+                            <div >
+                              <input type="tel" placeholder="Joining Date">
+                            </div>
+                            <div >
+                              <input type="tel" placeholder="Mobile Number">
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <div class="inputField">
+                                <input type="text" placeholder="Salary">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="CTC(INR)">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Designation ">
+                            </div>
+                            <div >
+                              <input type="text" placeholder="Department">
+                            </div>
+                            <div >
+                              <input type="email" placeholder="E-Mail">
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-4">
+                            <div class="inputField">
+                                <input type="text" placeholder="Bank Name">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="Account Number">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="IFSC Code">
+                            </div>
+                            <div >
+                              <input type="text" placeholder="Branch">
+                            </div>
+                            <div >
+                              <input type="text" placeholder="Branch" hidden>
+                            </div>
+                            <div class="row" style="margin-top:2%;">
+                                <div class="col-md-6">
+                                    <a class="cancel" href="#"> Save Changes</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="save" href="#"> Disable </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>  
         </div>
     </div>
         

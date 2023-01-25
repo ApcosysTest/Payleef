@@ -257,6 +257,13 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
   color: #009eff;
   padding: 4% 16%;
 }
+.box .edit{
+  text-decoration: none;
+  border: 1px solid var(--main-color);
+  margin: 20% auto 10% 20%;
+  color: #009eff;
+  padding: 4% 16%;
+}
 .box .save{
   text-decoration: none;
   background-color: var(--main-color); 
@@ -318,7 +325,60 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
 nav .btn{
   margin: 5%;
 }
+ .login{
+  width: 80%;
 }
+.content .setup{
+  padding: 5%;
+}
+.content .info{
+  padding: 4%;
+}
+.content p{
+  margin-top: 10%;
+  padding: 4%;
+}
+
+#footer{
+  margin-top: 42.7%;
+}
+.box{
+  border: 1px solid var(--border-color);
+  padding-bottom: 10%;
+  width: 10%;
+
+}
+.box .cancel{
+  text-decoration: none;
+  border: 1px solid var(--main-color);
+  margin: 20% auto 10% 20%;
+  color: #009eff;
+  padding: 4% 16%;
+}
+.box .save{
+  margin: 20% auto 10% -40px;
+  padding: 4% 20%;
+}
+.box .selectColor{
+  margin: 2
+  0% auto 10% auto;
+  padding: 4% 15%;
+}
+.box .uploadLogo{
+  margin: 20% auto 10% auto;
+  padding: 4% 15%;
+}
+.box .cancel{
+  margin: 20% auto 10% auto;
+  padding: 4% 18%;
+}
+.box .save{
+  text-decoration: none;
+  margin: 20% auto 10% auto;
+  padding: 4% 20%;
+}
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;
