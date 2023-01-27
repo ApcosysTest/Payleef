@@ -10,6 +10,10 @@
     {% load static %}
     <link href="{% static 'css\style.css' %}" rel="stylesheet">
 
+    <!-- Favicons -->
+    <link href="{% static 'img\favicon.ico' %}" rel="icon">
+    <link href="{% static 'img\apple-touch-icon.png' %}" rel="apple-touch-icon">
+
     <!-- CSS only -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
@@ -47,6 +51,7 @@
                 <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/employeeInformation">Employee Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/payslipDistribution">Payslip Distribution</a>
             </div>
             <div class="logout">
                 <a class="nav-link" href="#!"><i  class="bi bi-box-arrow-left"></i> Logout</a>
@@ -123,16 +128,55 @@
                             </div>
                             <div class="row" style="margin-top:2%;">
                                 <div class="col-md-6">
-                                    <a class="cancel" href="#"> Save Changes</a>
+                                    <a class="cancel" href="#"> Save</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a class="save" href="#"> Disable </a>
+                                    <!-- <a class="discard" href="#"> Disable </a> -->
+                                    <button type="button" class="btn  discard" data-toggle="modal" data-target="#myModal "href='#''> Disable</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                 </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg" style="text-align: center;">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header justify-content-center">
+                          <!-- <button style="border: none;" type="button" class="close" data-dismiss="modal">&times;</button> -->
+                          <h4 class="modal-title" >Are you sure you want to remove this Employee?</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>This action will remove the employee from the database.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                          <button type="button" class="btn  discard" data-toggle="modal" data-target="#successModal"href='#'> Disable</button>
+                          <button type="button" class="btn  cancel" data-dismiss="modal"> Cancel</button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                </div>
+                <div class="modal fade" id="successModal" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="success">
+                            <img class="circle" src="{% static 'img/success.png' %}" width="100px" height="100px">
+                
+                            <p>Successfully Disabled Employee</p>
+                
+                            <div class="con-btn">
+                                <a class="btn" href="/employeeInformation">Continue</a>
+                            </div>
+                        </div>   
+                      </div>
+                      
+                    </div>
+                  </div>
+                      
             </div>  
         </div>
     </div>
