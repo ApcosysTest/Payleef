@@ -26,4 +26,5 @@ urlpatterns = [
    path('employeeInformation',views.employeeInformation),
    path('salary',views.salary),
    path('salaryReport',views.salaryReport),
+   path('payslipDistribution',views.payslipDistribution),
 ]

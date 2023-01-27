@@ -271,6 +271,23 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
   color: #FFFFFF;
   padding: 4% 20%;
 }
+.box .discard{
+  text-decoration: none;
+  background-color: #FF4343; 
+  margin: 20% auto 10% -40px;
+  color: #FFFFFF;
+  padding: 4% 12%;
+}
+.modal-footer .cancel{
+  text-decoration: none;
+  background-color: var(--main-color); 
+  color: #FFFFFF;
+}
+.modal-footer .discard{
+  text-decoration: none;
+  background-color: #FF4343; 
+  color: #FFFFFF;
+}
 .box .cancel:hover{
   background-color: var(--main-color); 
   color: #FFFFFF;
@@ -293,6 +310,26 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
   margin: 20% 22% 10% auto;
   color: #009eff;
   padding: 4% 5%;
+}
+
+.success .con-btn  .btn{
+  display: inline;
+  background-color: #155e00 !important;
+  color: white !important;
+  box-shadow: 3px 3px 10px #0000009C;
+  padding: 10px 40px !important;
+}
+
+/* Mobile View  */
+@media (max-width: 575.98px) {
+  .companySetup .success{
+      width: 95%;
+      margin: 100px 10px;
+  }
+
+  .companySetup .success p{
+      padding: 175px 35px 0;
+  }
 }
 /* footer  */
 
@@ -353,7 +390,7 @@ nav .btn{
   border: 1px solid var(--main-color);
   margin: 20% auto 10% 20%;
   color: #009eff;
-  padding: 4% 16%;
+  padding: 4% 10%;
 }
 .box .save{
   margin: 20% auto 10% -40px;
