@@ -37,20 +37,20 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            
+            {% comment %} {% for employee in employees %}  {% endcomment %}
             <div class="list-group list-group-flush">
                 <!-- <button class="btn" id="sidebarClose"><span class="bi bi-x "></span></button> -->
                 <a class=" list-group-item list-group-item-action list-group-item-light p-3 border-top" href="/homepage"> Home</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companySetup">Company Setup</a>
+                <a class=" list-group-item list-group-item-action list-group-item-light p-3" href="/companySetup">Company Setup</a>
+                
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companyInformation">Company Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/searchEmployee">Employee Information</a>
+                <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/searchEmployee">Employee Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
-                <a class="active list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/payslipDistribution">Payslip Distribution</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
             </div>
             <div class="logout">
-                <a class="nav-link" href="#!"><i  class="bi bi-box-arrow-left"></i> Logout</a>
+                <a class="nav-link" href="/login"><i  class="bi bi-box-arrow-left"></i> Logout</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -65,11 +65,69 @@
                     <button class="btn" id="sidebarToggle"><span class="navbar-toggler-icon"></span></button>
                 </div>
             </nav>
-            <div>salaryREport</div>  
+            <div class="container-fluid companySetup">
+                <h5>Welcome to Payroll Management System</h5><br><br>
+                <div class="container box">
+                    <h6>Search Employee</h6>
+
+                <form method="POST" action="/employeeDetails" >
+                        {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="inputField">
+                                <input type="text" placeholder="Employee Code" id="emp_code" name="emp_code">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row" style="margin-top:2%;">
+                                <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="save"> Search</button>
+                                    {% comment %} <a class="save" href="#"> Next</a> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <br>
+
+                <table class="table" style="text-align: center;">
+                    <thead>  
+                      <tr>  
+                          <th>Employee Code</th>  
+                          <th>Employee Name</th>  
+                          <th>Action</th>  
+         
+                      </tr>  
+                      </thead>  
+                      <tbody>  
+
+                      {% for emp in employee %}
+
+                      <tr>  
+                        <td>{{emp.emp_code}}</td>
+                        <td>{{emp.emp_Name}}</td>  
+                        <td> 
+                            <a href="/employeeInformation/{{emp.id}}"> <i data-feather="edit"></i>Edit</a>   
+                            
+                        </td>  
+                      </tr>  
+              
+                      {% endfor %}
+
+                     </tbody>     
+                  </table>
+             
+                
+                </div>
+                
+            </div>
         </div>
-        
     </div>
-    
+               
     <div id="footer">
         <p>Copyrights 2023 @ Payroll Management System</p>
     </div>
