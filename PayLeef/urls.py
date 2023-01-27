@@ -16,22 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views
-from django.conf import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
-   path('',views.login),
+   path('login',views.login),
    path('homepage',views.homepage),
    path('companySetup',views.companySetup),
    path('companyInformation',views.companyInformation),
    path('addEmployee',views.addEmployee),
-   path('searchEmployee',views.searchEmployee),
-   path('employeeDetails', views.employeeDetails),  
-   path('employeeInformation/<int:id>',views.employeeInformation),
-   path('update/<int:id>',views.update),
+   path('employeeInformation',views.employeeInformation),
    path('salary',views.salary),
    path('salaryReport',views.salaryReport),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)

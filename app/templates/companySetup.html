@@ -37,20 +37,19 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            {% comment %} {% for employee in employees %}  {% endcomment %}
+            
             <div class="list-group list-group-flush">
                 <!-- <button class="btn" id="sidebarClose"><span class="bi bi-x "></span></button> -->
                 <a class=" list-group-item list-group-item-action list-group-item-light p-3 border-top" href="/homepage"> Home</a>
                 <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/companySetup">Company Setup</a>
-                
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companyInformation">Company Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/searchEmployee">Employee Information</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/employeeInformation">Employee Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
             </div>
             <div class="logout">
-                <a class="nav-link" href="/login"><i  class="bi bi-box-arrow-left"></i> Logout</a>
+                <a class="nav-link" href="#!"><i  class="bi bi-box-arrow-left"></i> Logout</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -69,60 +68,54 @@
                 <h5>Welcome to Payroll Management System</h5><br><br>
                 <div class="container box">
                     <h6>Company Setup</h6>
-
-                    <form method="POST" action="/companySetup" enctype="multipart/form-data">
-                        {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="inputField">
-                                <input type="text" placeholder="Company Name" id="company_name" name="company_name">
+                                <input type="text" placeholder="Company Name">
                             </div>
                             <div>
-                                <input type="text" placeholder="E-Mail" id="email" name="email">
+                                <input type="email" placeholder="E-Mail">
                             </div>
                             <div>
-                                <input type="text" placeholder="Website" id="website" name="website" >
+                                <input type="text" placeholder="Website">
                             </div>
                             <div >
-                              <input type="number" placeholder="Telephone" id="telephone" name="telephone">
+                              <input type="tel" placeholder="Telephone">
                             </div>
-                          <div class="row" style="margin-top:2%;">
+                            <div class="row" style="margin-top:2%;">
                                 <div class="col-md-6">
-                                     <input type="color" id="colorUp" name="color" value="#009eff" style="display: none;">
-                                    <a id="upload_color" href="javascript:void(0)" class="selectColor" href="#"> Select Color</a> 
+                                    <input type="color" id="colorUp" name="color" value="#009eff" style="display: none;">
+                                    <a id="upload_color" href="javascript:void(0)" class="selectColor" href="#"> Select Color</a>
                                 </div>
-
                                 <div class="col-md-6">
-                                    <input id="fileUp" type="file"  style="display: none;"  id="companylogo" name="companylogo">
-                                    <a id="upload_link" href="javascript:void(0)" type="button" class="uploadLogo" ><i class="bi bi-upload"></i> Upload Logo</a>
-                                </div> 
-                            </div> 
+                                    <input id="fileUp" type="file"  style="display: none;">
+                                    <a id="upload_link" href="javascript:void(0)" class="uploadLogo" href="#"><i class="bi bi-upload"></i> Upload Logo</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="inputField">
-                                <input type="text" placeholder="State"  id="state" name="state">
+                                <input type="text" placeholder="State">
                             </div>
                             <div>
-                                <input type="number" placeholder="ZIP" id="zip" name="zip">
+                                <input type="number" placeholder="ZIP">
                             </div>
                             <div>
-                                <input type="text" placeholder="City" id="city" name="city">
+                                <input type="text" placeholder="City">
                             </div>
                             <div >
-                              <input type="text" placeholder="Country" id="country" name="country">
+                              <input type="text" placeholder="Country">
                             </div>
                             <div class="row" style="margin-top:2%;">
                                 <div class="col-md-6">
                                     
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="submit" class="save"> Save</button>
-                                    {% comment %} <a class="save" href="#"> Next</a> {% endcomment %}
+                                    <a class="save" href="#"> Next</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
                 </div>
             </div>
         </div>
@@ -140,7 +133,6 @@
             $("#colorUp").trigger('click');
         });
     </script>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{% static 'js\main.js' %}"></script>
     <script>

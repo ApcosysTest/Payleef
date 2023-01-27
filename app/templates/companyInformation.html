@@ -44,7 +44,7 @@
                 <a class=" list-group-item list-group-item-action list-group-item-light p-3" href="/companySetup">Company Setup</a>
                 <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/companyInformation">Company Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/searchEmployee">Employee Information</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/employeeInformation">Employee Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
             </div>
@@ -68,21 +68,19 @@
                 <h5>Welcome to Payroll Management System</h5><br><br>
                 <div class="container box">
                     <h6>Company Information</h6>
-                    <form method="POST" class="post-form"  action="/companyInformation">
-                        {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="inputField">
-                                <input type="text" placeholder="Company Name" value="{{company.company_name }}">
+                                <input type="text" placeholder="Company Name" value="Apcosys Private Limited">
                             </div>
                             <div>
-                                <input type="email" placeholder="E-Mail" value="{{company.email }}">
+                                <input type="email" placeholder="E-Mail" value="sales@apcosys.in">
                             </div>
                             <div>
-                                <input type="text" placeholder="Website"value="{{company.website }}">
+                                <input type="text" placeholder="Website"value="apcosys.in">
                             </div>
                             <div >
-                              <input type="tel" placeholder="Telephone" value="{{company.telephone }}">
+                              <input type="tel" placeholder="Telephone" value="1231231231">
                             </div>
                             <div class="row" style="margin-top:2%;">
                                 <div class="col-md-6">
@@ -93,29 +91,27 @@
                         </div>
                         <div class="col-md-6">
                             <div class="inputField">
-                                <input type="text" placeholder="State" value="{{company.state }}">
+                                <input type="text" placeholder="State" value="Karnataka">
                             </div>
                             <div>
-                                <input type="number" placeholder="ZIP" value="{{company.zip }}">
+                                <input type="number" placeholder="ZIP" value="560001">
                             </div>
                             <div>
-                                <input type="text" placeholder="City" value="{{company.city }}">
+                                <input type="text" placeholder="City" value="Bangalore">
                             </div>
                             <div >
-                              <input type="text" placeholder="Country" value="{{company.country}}">
+                              <input type="text" placeholder="Country" value="India">
                             </div>
                             <div class="row" style="margin-top:2%;">
                                 <div class="col-md-6">
                                     <a class="cancel" href="#"> &nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="submit" class="save"> Save</button>
-                                    {% comment %} <a class="save" href="#"> Save</a> {% endcomment %}
+                                    <a class="save" href="#"> Save</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
                 </div>
             </div>
         </div>
