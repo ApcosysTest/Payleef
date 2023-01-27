@@ -50,7 +50,9 @@
                 <div class="login">
                     <h3>Log In</h3>
                     <p>Enter your details below to continue</p>
-                    <form method="POST" class="post-form" action="/login">
+                    <form method="POST" class="post-form" action="">
+
+                        {% csrf_token %}
                         <center>  
                             <div class="container-fluid" style='padding:0px'>
                                     <!-- <div class ="messages">
@@ -61,14 +63,14 @@
                             </div> 
                         </center> 
                         <div class="inputWithIcon">
-                            <input class="form-control" type="text" placeholder="Username">
+                            <input class="form-control" type="text" placeholder="Username" id="username" name="username">
                             <span class="material-symbols-outlined">person</span>
                         </div>
                         <div class="inputWithIcon">
-                            <input class="form-control" type="password" placeholder="Password">
+                            <input class="form-control" type="password" placeholder="Password" id="password" name="password">
                             <span class="material-symbols-outlined">lock</span>
                         </div>
-                        <button type="submit" class="btn" href="#">Log In</button>
+                        <button type="submit" class="btn">Log In</button>
                     </form>
                 </div>
             </div>

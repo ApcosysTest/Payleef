@@ -44,7 +44,7 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companySetup">Company Setup</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/companyInformation">Company Information</a>
                 <a class=" list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
-                <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/employeeInformation">Employee Information</a>
+                <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/searchEmployee">Employee Information</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
             </div>
@@ -68,62 +68,66 @@
                 <h5>Welcome to Payroll Management System</h5><br><br>
                 <div class="container box">
                     <h6>Add Employee</h6>
+
+                <form method="POST" class="post-form" action="/update/{{employee.id}}">  
+                        {% csrf_token %}  
                     <div class="row">
                         <div class="col-md-4">
                             <div class="inputField">
-                                <input type="text" placeholder="Employee Code">
+                                <input type="text" placeholder="Employee Code" value="{{employee.emp_code }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="Employee Name">
+                                <input type="text" placeholder="Employee Name" value="{{employee.emp_Name }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="Employee PAN">
+                                <input type="text" placeholder="Employee PAN" value="{{employee.emp_PAN }}">
                             </div>
                             <div >
-                              <input type="tel" placeholder="Joining Date">
+                              <input type="tel" placeholder="Joining Date" value="{{employee.Joining_date }}">
                             </div>
                             <div >
-                              <input type="tel" placeholder="Mobile Number">
+                              <input type="tel" placeholder="Mobile Number" value="{{employee.mobile_no }}">
                             </div>
                             
                         </div>
                         <div class="col-md-4">
                             <div class="inputField">
-                                <input type="text" placeholder="Salary">
+                                <input type="text" placeholder="Salary" value="{{employee.salary }}">
                             </div>
                             <div>
-                                <input type="number" placeholder="CTC(INR)">
+                                <input type="number" placeholder="CTC(INR)" value="{{employee.CTC }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="Designation ">
+                                <input type="text" placeholder="Designation " value="{{employee.designation }}">
                             </div>
                             <div >
-                              <input type="text" placeholder="Department">
+                              <input type="text" placeholder="Department"  value="{{employee.department }}">
                             </div>
                             <div >
-                              <input type="email" placeholder="E-Mail">
+                              <input type="email" placeholder="E-Mail"  value="{{employee.email }}">
                             </div>
                            
                         </div>
                         <div class="col-md-4">
                             <div class="inputField">
-                                <input type="text" placeholder="Bank Name">
+                                <input type="text" placeholder="Bank Name" value="{{employee.bank_Name }}">
                             </div>
                             <div>
-                                <input type="number" placeholder="Account Number">
+                                <input type="number" placeholder="Account Number" value="{{employee.bank_Account_No }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="IFSC Code">
+                                <input type="text" placeholder="IFSC Code" value="{{employee.IFSC }}">
                             </div>
                             <div >
-                              <input type="text" placeholder="Branch">
+                              <input type="text" placeholder="Branch" value="{{employee.branch }}">
                             </div>
-                            <div >
+                            {% comment %} <div >
                               <input type="text" placeholder="Branch" hidden>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="row" style="margin-top:2%;">
                                 <div class="col-md-6">
-                                    <a class="cancel" href="#"> Save Changes</a>
+                                    {% comment %} <a class="cancel" href="#"> Save</a> {% endcomment %}
+                                    <button type="submit" class="cancel">Update</button>  
                                 </div>
                                 <div class="col-md-6">
                                     <a class="save" href="#"> Disable </a>
@@ -131,6 +135,9 @@
                             </div>
                         </div>
                     </div>
+
+                </form>  
+                     
                     
                 </div>
             </div>  
