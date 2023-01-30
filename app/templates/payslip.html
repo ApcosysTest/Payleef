@@ -32,6 +32,18 @@
     <!-- Google Icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" />
 
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        
+        th{
+          text-align:left;
+        }
+    </style>
+
 </head>
 <body id="body-pd">
     <div class="d-flex" id="wrapper">
@@ -68,30 +80,114 @@
                 <div class="container box">
                     <form method="POST"  action="/addEmployee">
                         {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-4">
+                    <div class="row" style="padding: 2%; ">
+                        <div class="col-md-3" >
+                            <img src="{% static 'img\logo.png' %}" height="80px" width="110px" alt="Logo">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6" style="text-align: center; color: #474747;">
+                            <h5>Apcosys Private Limited</h5>
+                            <p>708 Barton Centre, 84 Mahatma Gandhi <br> Road Bangalore 560 001</p>
+                            <h6 style="text-align: center;">Payslip for the month of January 2023</h6>
                         </div>
-                        <div class="col-md-4">
-                            {% comment %} <div >
-                              <input type="text" placeholder="Branch" hidden>
-                            </div> {% endcomment %}
-                            <div class="row" style="margin-top:2%;">
-                                <div class="col-md-6">
-                                    <!-- <a class="cancel" href="#"> Cancel</a> -->
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="save" type="submit"> Save</button>
+                        <div class="col-md-3"></div>
+                       
+                    </div>
 
-                                    {% comment %} a class="save" href="#"> Save</a> {% endcomment %}
-                                </div>
+                    <div class="row">
+                        <table style='padding-top:1.5px;padding:1.5px;'>
+
+                           
+                            
+                            
+                          
+                            </tr>
+                            
+                              <tr style='color:#00008B;' >
+                                        <th style="margin-left:3px;padding-top:4px"><b> Name</b></th>
+                                        <td style="margin-left:3px;padding-top:4px"> {{monthlyData.name }} </td>
+                                        <th style="margin-left:3px;padding-top:4px"><b> Employee ID</b></th>
+                                        <td style="margin-left:3px;padding-top:4px">  {{monthlyData.empId }}</td>
+                                 
+                             
+                              
+                              </tr>
+                            
+                              <tr style='color:#00008B;'>
+                                        <th style="margin-left:3px;padding-top:4px"><b> Bank Name</b></th>
+                                        <td style="margin-left:3px;padding-top:4px"> {{monthlyData.bankName }} </td>
+                                        <th style="margin-left:3px;padding-top:4px"><b> Account No</b></th>
+                                        <td style="margin-left:3px;padding-top:4px">  {{monthlyData.accountNo }}</td>
+                                        
+                             
+                              
+                              </tr>
+                            
+                            
+                              <tr style='color:#00008B;'>
+                                        
+                                        <th style="margin-left:3px;padding-top:4px"><b> PAN No</b></th>
+                                        <td style="margin-left:3px;padding-top:4px">  {{monthlyData.panNo }}</td>
+                                        <th style="margin-left:3px;padding-top:4px"><b> Department</b></th>
+                                        <td style="margin-left:3px;padding-top:4px">  {{monthlyData.department }}</td>
+                                       
+                            
+                              </tr>
+                            
+                              <tr style='color:#00008B;'>
+                                        <th style="margin-left:3px;padding-top:4px"><b> Designation</b></th>
+                                        <td style="margin-left:3px;padding-top:4px"> {{monthlyData.designation }} </td>
+                                        <th style="margin-left:3px;padding-top:4px"><b> Days Paid</b></th>
+                                        <td style="margin-left:3px;padding-top:4px">  {{monthlyData.daysPaid }}</td>
+                                      
+                              </tr>
+                            
+                          
+                            
+                            
+                               
+                            
+                            
+                            </table>
+                          
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                        {% comment %} <div >
+                          <input type="text" placeholder="Branch" hidden>
+                        </div> {% endcomment %}
+                        <div class="row" style="margin-top:2%;">
+                            <div class="col-md-6">
+                                <!-- <a class="cancel" href="#"> Cancel</a> -->
+                            </div>
+                            <div class="col-md-6">
+                                <button class="save"data-toggle="modal" data-target="#successModal" type="button" href="#"> Save</button>
+
+                                {% comment %} a class="save" href="#"> Save</a> {% endcomment %}
                             </div>
                         </div>
                     </div>
+                    </div>
 
                 </form>
-                    
+                <div class="modal fade" id="successModal" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="success">
+                            <img class="circle" src="{% static 'img/success.png' %}" width="100px" height="100px">
+                
+                            <p>Successfully Saved</p>
+                
+                            <div class="con-btn">
+                                <a class="btn" href="/salary">Done</a>
+                            </div>
+                        </div>   
+                      </div>
+                      
+                    </div>
+                </div> 
                 </div>
             </div>  
         </div>
