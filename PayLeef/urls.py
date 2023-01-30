@@ -31,6 +31,7 @@ urlpatterns = [
    path('update/<int:id>',views.update),
    path('salary',views.salary),
    path('salaryReport',views.salaryReport),
+   path('payslip',views.payslip),
    path('payslipDistribution',views.payslipDistribution),
 ]
 if settings.DEBUG:

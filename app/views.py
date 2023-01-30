@@ -130,5 +130,8 @@ def salary(request):
 def salaryReport(request):
     return render(request,'salaryReport.html')
 
+def payslip(request):
+    return render(request,'payslip.html')
+
 def payslipDistribution(request):
     return render(request,'payslipDistribution.html')

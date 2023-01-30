@@ -238,7 +238,18 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 .inputField {
   padding-top: 8%;
 }
-input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], input[type='number'], input[type='email'] {
+select{
+  width: 70%;
+  color: #474747;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  outline: none;
+  padding: 8px; 
+  padding-left: 3%;
+  box-sizing: border-box;
+  margin-bottom: 5%;
+}
+input[type="text"], input[type='month'],input[type='tel'],input[type='password'], input[type='number'], input[type='email'] {
   width: 70%;
   color: #474747;
   font-weight: 600;
@@ -268,6 +279,13 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
   text-decoration: none;
   background-color: var(--main-color); 
   margin: 20% auto 10% -40px;
+  color: #FFFFFF;
+  padding: 4% 20%;
+}
+.box .send{
+  text-decoration: none;
+  background-color: var(--main-color); 
+  margin: 10% auto 10% -40px;
   color: #FFFFFF;
   padding: 4% 20%;
 }
@@ -319,7 +337,10 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
   box-shadow: 3px 3px 10px #0000009C;
   padding: 10px 40px !important;
 }
-
+.companySetup .table tr td .workingDays{
+  width: 30%;
+  background-color: #ECECEC;
+}
 /* Mobile View  */
 @media (max-width: 575.98px) {
   .companySetup .success{
@@ -335,18 +356,19 @@ input[type="text"], input[type='tel'],input[type='tel'],input[type='password'], 
 
 #footer {
   width: 100%;
-  top: 0;
   bottom : 0;
   height:25px;
   background-color: var(--main-color);
   color: #fff;
   font-size: 12px ;
+  
+  position: fixed;
 }
 #footer p{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 1px;
   padding-top: 4px;
 }
 
@@ -395,6 +417,7 @@ nav .btn{
 .box .save{
   margin: 20% auto 10% -40px;
   padding: 4% 20%;
+  border: none;
 }
 .box .selectColor{
   margin: 2

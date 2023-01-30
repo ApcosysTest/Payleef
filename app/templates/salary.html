@@ -46,7 +46,6 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/addEmployee">Add Employee</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/searchEmployee">Employee Information</a>
                 <a class="active list-group-item list-group-item-action list-group-item-light p-3" href="/salary">Salary</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/salaryReport">Salary Report</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 border-bottom" href="/payslipDistribution">Payslip Distribution</a>
             </div>
             <div class="logout">
@@ -65,7 +64,83 @@
                     <button class="btn" id="sidebarToggle"><span class="navbar-toggler-icon"></span></button>
                 </div>
             </nav>
-            <div>salary</div>
+            <div class="container-fluid companySetup">
+                <h5>Welcome to Payroll Management System</h5><br><br>
+                <div class="container box">
+                    <h6>Salary Report</h6>
+
+                <form method="POST" action="/employeeDetails" >
+                        {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="inputField">
+                                <input type="text" placeholder="Employee Code" id="emp_code" name="emp_code">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row" style="margin-top:2%;">
+                                <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" style="border: none; " class="save"> Search</button>
+                                    <!-- {% comment %} <a class="save" href="#"> Next</a> {% endcomment %} -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <br>
+
+                <table class="table" style="text-align: center;color:#5B5B5B; vertical-align: middle;">
+                    <thead>  
+                      <tr>  
+                            <th>Employee Name</th>    
+                          <th>Employee Code</th>  
+                          <th>Year</th>  
+                          <th>Month</th>  
+                          <th>Enter Working Days</th>  
+                          <th>Edit</th>  
+         
+                      </tr>  
+                    </thead>  
+                    <tbody style=" top: 20%;">  
+                        <tr>
+                            <td>Krishna Shahu</td>
+                            <td>K0002</td>
+                            <td>2023</td>
+                            <td>02</td>
+                            <td><input style="width: 30%; background-color: #ECECEC; text-align: center;" max="31" type="number"></td>
+                            <td><a href="#" style="text-decoration: none; "> <span class="material-symbols-outlined" style="font-size: 36px; font-weight:600;">
+                                edit_note
+                                </span></a> </td>
+                        </tr>
+                        
+
+                      {% for emp in employee %}
+
+                      <tr>  
+                        <td>{{emp.emp_Name}}</td>  
+                        <td>{{emp.emp_code}}</td>
+                        <td>2023</td>
+                        <td>FEB</td>
+                        <td><input class="workingDays" type="number" ></td>
+                        <td> 
+                            <a href="/employeeInformation/{{emp.id}}"> <i class="bi bi-pencil-square"></i></a>   
+                            
+                        </td>  
+                      </tr>  
+              
+                      {% endfor %}
+
+                    </tbody>     
+                  </table>
+             
+                
+                </div>
+                
+            </div>
         </div>
     </div>
         
