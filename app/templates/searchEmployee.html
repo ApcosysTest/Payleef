@@ -111,7 +111,9 @@
                         <td>{{emp.emp_code}}</td>
                         <td>{{emp.emp_Name}}</td>  
                         <td> 
-                            <a href="/employeeInformation/{{emp.id}}"> <i data-feather="edit"></i>Edit</a>   
+
+                            <a type="submit" class="save" href="/employeeInformation/{{emp.id}}"> Edit</a>
+                            {% comment %} <a href="/employeeInformation/{{emp.id}}"> <i data-feather="edit"></i>Edit</a>    {% endcomment %}
                             
                         </td>  
                       </tr>  

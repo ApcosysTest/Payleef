@@ -73,57 +73,57 @@
                 <div class="container box">
                     <h6>Add Employee</h6>
 
-                <form method="POST" class="post-form" action="/update/{{employee.id}}">  
+                <form method="POST" class="post-form"  action="/update/{{employee.id}}">  
                         {% csrf_token %}  
                     <div class="row">
                         <div class="col-md-4">
                             <div class="inputField">
-                                <input type="text" placeholder="Employee Code" value="{{employee.emp_code }}">
+                                <input type="text" placeholder="Employee Code" name="emp_code" id="emp_code" value="{{employee.emp_code }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="Employee Name" value="{{employee.emp_Name }}">
+                                <input type="text" placeholder="Employee Name" name="emp_Name" id="emp_Name" value="{{employee.emp_Name }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="Employee PAN" value="{{employee.emp_PAN }}">
+                                <input type="text" name="emp_PAN" id="emp_PAN" placeholder="Employee PAN" value="{{employee.emp_PAN }}">
                             </div>
                             <div >
-                              <input type="tel" placeholder="Joining Date" value="{{employee.Joining_date }}">
+                              <input type="tel" name="Joining_date" id="Joining_date" placeholder="Joining Date" value="{{employee.Joining_date }}">
                             </div>
                             <div >
-                              <input type="tel" placeholder="Mobile Number" value="{{employee.mobile_no }}">
+                              <input type="tel" name="mobile_no" id="mobile_no" placeholder="Mobile Number" value="{{employee.mobile_no }}">
                             </div>
                             
                         </div>
                         <div class="col-md-4">
                             <div class="inputField">
-                                <input type="text" placeholder="Salary" value="{{employee.salary }}">
+                                <input type="text" name="salary" id="salary" placeholder="Salary" value="{{employee.salary }}">
                             </div>
                             <div>
-                                <input type="number" placeholder="CTC(INR)" value="{{employee.CTC }}">
+                                <input type="number" name="CTC" id="CTC" placeholder="CTC(INR)" value="{{employee.CTC }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="Designation " value="{{employee.designation }}">
+                                <input type="text" name="designation" id="designation" placeholder="Designation " value="{{employee.designation }}">
                             </div>
                             <div >
-                              <input type="text" placeholder="Department"  value="{{employee.department }}">
+                              <input type="text" name="department" id="department" placeholder="Department"  value="{{employee.department }}">
                             </div>
                             <div >
-                              <input type="email" placeholder="E-Mail"  value="{{employee.email }}">
+                              <input type="email" name="email" id="email" placeholder="E-Mail"  value="{{employee.email }}">
                             </div>
                            
                         </div>
                         <div class="col-md-4">
                             <div class="inputField">
-                                <input type="text" placeholder="Bank Name" value="{{employee.bank_Name }}">
+                                <input type="text" name="bank_Name" id="bank_Name" placeholder="Bank Name" value="{{employee.bank_Name }}">
                             </div>
                             <div>
-                                <input type="number" placeholder="Account Number" value="{{employee.bank_Account_No }}">
+                                <input type="number" name="bank_Account_No" id="bank_Account_No" placeholder="Account Number" value="{{employee.bank_Account_No }}">
                             </div>
                             <div>
-                                <input type="text" placeholder="IFSC Code" value="{{employee.IFSC }}">
+                                <input type="text" name="IFSC" id="IFSC" placeholder="IFSC Code" value="{{employee.IFSC }}">
                             </div>
                             <div >
-                              <input type="text" placeholder="Branch" value="{{employee.branch }}">
+                              <input type="text" name="branch" id="branch" placeholder="Branch" value="{{employee.branch }}">
                             </div>
                             {% comment %} <div >
                               <input type="text" placeholder="Branch" hidden>
@@ -135,8 +135,25 @@
                                 </div>
                                 <div class="col-md-6">
                                     <!-- <a class="discard" href="#"> Disable </a> -->
-                                    <button type="button" class="btn  discard" data-toggle="modal" data-target="#myModal "href='#'> Disable</button>
-                                </div>
+
+                                    {% if employee.emp_status == 0 %}
+
+                                        <a type="button" class="btn  discard" data-toggle="modal" data-target="#myModal "href='#'> Disable</a>
+                                    
+                                    {% elif employee.emp_status == 1 %}
+
+                                    <a type="button" class="btn  discard" data-toggle="modal" data-target="#myModal "href='#'> Enable</a>
+                                    
+
+                                    {% else %} 
+
+                                    <a type="button" class="btn  cancel" data-dismiss="modal"> Remove</a>
+
+                                    {% endif %}
+                        
+
+
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -157,10 +174,33 @@
                           <p>This action will remove the employee from the database.</p>
                         </div>
                         <div class="modal-footer">
-                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                          <button type="button" class="btn  discard" data-toggle="modal" data-target="#successModal"href='#'> Disable</button>
-                          <button type="button" class="btn  cancel" data-dismiss="modal"> Cancel</button>
+
+                
+                        
+                        {% if employee.emp_status == 0 %}
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                          <a type="button" class="btn  discard" data-toggle="modal" data-target="#successModal" href="/deactive_emp/{{ employee.emp_code}}/{{ employee.id }}"> Disable</a>
+                        
+                        -->
+                          {% comment %} <a type="button" class="btn  discard" data-toggle="modal"  href="/deactive_emp/{{ employee.emp_code}}/{{ employee.id }}"> Disable</a> {% endcomment %}
+                          <a type="button" class="btn discard"  data-toggle="modal" data-target="#successModal" >Disable</a>
+                         
+                          <a type="button" class="btn  cancel" data-dismiss="modal"> Cancel</a>
+
+                        {% elif employee.emp_status == 1 %}
+
+                           <a type="button" class="btn  cancel"  href="/active_emp/{{ employee.emp_code }}/{{ employee.id }}">Enable</a>
+
+                        {% else %} 
+
+                          <a type="button" class="btn  cancel" data-dismiss="modal"> Remove</a>
+
+                        {% endif %}
+                        
+                    
                         </div>
+
+                    
                       </div>
                       
                     </div>
@@ -175,13 +215,13 @@
                             <p>Successfully Disabled Employee</p>
                 
                             <div class="con-btn">
-                                <a class="btn" href="/employeeInformation">Continue</a>
+                                <a class="btn" href="/deactive_emp/{{ employee.emp_code }}/{{ employee.id }}">Continue</a>
                             </div>
                         </div>   
                       </div>
                       
                     </div>
-                </div>
+                  </div>
                       
             </div>  
         </div>

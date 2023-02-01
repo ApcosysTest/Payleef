@@ -35,13 +35,35 @@ def companySetup(request):
         form = companySetupForm(request.POST,request.FILES)
         
         if form.is_valid():  
-            try:  
-                form.save()  
+                company_name = form.cleaned_data.get('company_name')
+                email = form.cleaned_data.get('email')
+                website = form.cleaned_data.get('website')
+                telephone = form.cleaned_data.get('telephone')
+                state = form.cleaned_data.get('state')
+                zip = form.cleaned_data.get('zip')
+                city = form.cleaned_data.get('city')
+                country = form.cleaned_data.get('country')
+                companylogo = form.cleaned_data.get('companylogo')
+        
+                basic = form.cleaned_data.get('basic')
+                houseRentAllowance = form.cleaned_data.get('houseRentAllowance')
+                medicalAllowance = form.cleaned_data.get('medicalAllowance')
+                foodAllowance = form.cleaned_data.get('foodAllowance')
+                conveyanceAllowance = form.cleaned_data.get('conveyanceAllowance')
+                attendance = form.cleaned_data.get('attendance')
+                other = form.cleaned_data.get('other')
+                annualBonus = form.cleaned_data.get('annualBonus')
+                professionalTax = form.cleaned_data.get('professionalTax')
+                 
+                form.save() 
+                 
+                # for employee in companysetup.objects.all().values_list('company_name',):
+                #     request.session['company_name'] = employee[0]
+                
                 return redirect('/companyInformation')
                 # return HttpResponse("done")
-            except:  
-                print(form.errors)
-                pass  
+                
+                
     else:  
         
         form = companySetupForm()  
@@ -67,6 +89,8 @@ def companyInformation(request):
    
             return render(request,'companyInformation.html',{'company':company})        
     return render(request,"companyInformation.html")
+    
+
 
 def addEmployee(request):
     if request.method == "POST": 
@@ -109,7 +133,9 @@ def employeeDetails(request):
     emp = employee.objects.filter(emp_code=emp_code)
     return render(request, 'searchEmployee.html',{'employee' : emp})
 
-def employeeInformation(request, id):  
+
+def employeeInformation(request, id): 
+    # employees = employee.objects.all() 
     emp = employee.objects.get(id=id)  
     return render(request,'employeeInformation.html', {'employee':emp})  
 
@@ -119,13 +145,27 @@ def update(request, id):
     if form.is_valid():  
         form.save()  
         return redirect("/searchEmployee")  
-    return render(request, 'employeeInformation.html', {'employee': emp})    
-
-
+    return render(request, 'employeeInformation.html', {'employee': emp})  
  
+
+def deactive_emp(request,emp_code,id):
+    emp=employee.objects.get(emp_code=emp_code,id=id)
+    emp.emp_status=1
+    emp.save()
+    
+
+    return redirect("/searchEmployee")
+
+
+def active_emp(request,emp_code,id):
+    emp=employee.objects.get(emp_code=emp_code,id=id)
+    emp.emp_status=0
+    emp.save()
+    return redirect("/searchEmployee")
 
 def salary(request):
     return render(request,'salary.html')
+
 
 def salaryReport(request):
     return render(request,'salaryReport.html')

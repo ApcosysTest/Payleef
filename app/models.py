@@ -19,15 +19,15 @@ class companysetup(models.Model):
     country = models.CharField(max_length=500,blank = True,null=True)
     companylogo = models.ImageField(upload_to='images/')
     
-    # basic = models.CharField(max_length=50,blank = True,null=True)
-    # houseRentAllowance = models.CharField(max_length=50,blank=True,null=True) 
-    # medicalAllowance = models.CharField(max_length=50,blank = True,null=True)
-    # foodAllowance = models.CharField(max_length=50,blank = True,null=True)
-    # conveyanceAllowance = models.CharField(max_length=50,blank = True,null=True)
-    # attendance = models.CharField(max_length=50,blank = True,null=True)
-    # other = models.CharField(max_length=50,blank = True,null=True)
-    # annualBonus = models.CharField(max_length=50,blank = True,null=True)
-    # professionalTax = models.CharField(max_length=50,blank = True,null=True)
+    basic = models.CharField(max_length=50,blank = True,null=True)
+    houseRentAllowance = models.CharField(max_length=50,blank=True,null=True) 
+    medicalAllowance = models.CharField(max_length=50,blank = True,null=True)
+    foodAllowance = models.CharField(max_length=50,blank = True,null=True)
+    conveyanceAllowance = models.CharField(max_length=50,blank = True,null=True)
+    attendance = models.CharField(max_length=50,blank = True,null=True)
+    other = models.CharField(max_length=50,blank = True,null=True)
+    annualBonus = models.CharField(max_length=50,blank = True,null=True)
+    professionalTax = models.CharField(max_length=50,blank = True,null=True)
     
     class Meta:  
         db_table = "companysetup" 
@@ -48,6 +48,7 @@ class employee(models.Model):
     bank_Account_No = models.CharField(max_length=500)
     IFSC = models.CharField(max_length=500)
     branch = models.CharField(max_length=500)
+    emp_status = models.IntegerField(default=0,blank = True,null=True)
     
     
 

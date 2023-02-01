@@ -69,39 +69,37 @@
                 <div class="container box">
                     <h6>Salary Report</h6>
 
+                
                 <form method="POST" action="/employeeDetails" >
                         {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="inputField">
-                                <input type="text" placeholder="Employee Code" id="emp_code" name="emp_code">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row" style="margin-top:2%;">
-                                <div class="col-md-6">
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" style="border: none; " class="save"> Search</button>
-                                    <!-- {% comment %} <a class="save" href="#"> Next</a> {% endcomment %} -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="inputField">
+                                    <input type="text" placeholder="Select Month" onfocus="(this.type='month')">
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="inputField">
+                                    <input type="number" placeholder="Enter Working Days">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                        <button type="submit" style="border: none; " class="send">&nbsp; Done &nbsp;</button>
+                                        <!-- {% comment %} <a class="save" href="#"> Next</a> {% endcomment %} -->
+                            </div>
                         </div>
-                    </div>
                 </form>
-
+                
                 <br>
 
-                <table class="table" style="text-align: center;color:#5B5B5B; vertical-align: middle;">
+                <table class="table " style="text-align: center; color:#5B5B5B; vertical-align: middle; width:95%;">
                     <thead>  
                       <tr>  
                             <th>Employee Name</th>    
                           <th>Employee Code</th>  
                           <th>Year</th>  
                           <th>Month</th>  
-                          <th>Enter Working Days</th>  
-                          <th>Edit</th>  
+                          <th>Working Days</th>  
          
                       </tr>  
                     </thead>  
@@ -111,10 +109,8 @@
                             <td>K0002</td>
                             <td>2023</td>
                             <td>02</td>
-                            <td><input style="width: 30%; background-color: #ECECEC; text-align: center;" max="31" type="number"></td>
-                            <td><a href="/payslip" style="text-decoration: none; "> <span class="material-symbols-outlined" style="font-size: 36px; font-weight:600;">
-                                edit_note
-                                </span></a> </td>
+                            <td>26</td>
+                            
                         </tr>
                         
 

@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="inputField">
-                                <input type="text" placeholder="Company Name" value="{{company.company_name }}">
+                                <input type="text" placeholder="Company Name" value="{{company.company_name}}">
                             </div>
                             <div>
                                 <input type="email" placeholder="E-Mail" value="{{company.email }}">
@@ -105,15 +105,65 @@
                               <input type="text" placeholder="Country" value="{{company.country}}">
                             </div>
                             <div class="row" style="margin-top:2%;">
+                                
                                 <div class="col-md-6">
-                                    <a class="cancel" href="#"> &nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="save"> Save</button>
-                                    {% comment %} <a class="save" href="#"> Save</a> {% endcomment %}
+                                    <button type="button" id="nextButton" class="save" onclick="toggleVisibility('next');" href="#next"> Next</button>
+                                    {% comment %} <a class="save" href="#"> Next</a> {% endcomment %}
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row" id="next" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="inputField">
+                                        <input type="number" placeholder="Basic" id="basic" name="basic" value="{{company.basic}}">
+                                    </div>
+                                    <div>
+                                        <input type="number" placeholder="House Rent Allowance" id="houseRentAllowance" name="houseRentAllowance"  value="{{company.houseRentAllowance}}">
+                                    </div>
+                                    <div>
+                                        <input type="number" placeholder="Medical Allowance" id="medicalAllowance" name="medicalAllowance" value="{{company.medicalAllowance}}">
+                                    </div>
+                                    <div >
+                                      <input type="number" placeholder="Food Allowance" id="foodAllowance" name="foodAllowance"  value="{{company.foodAllowance}}">
+                                    </div>
+                                    <div >
+                                      <input type="number" placeholder="Professional Tax" id="professionalTax" name="professionalTax"  value="{{company.professionalTax}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="inputField">
+                                        <input type="number" placeholder="Conveyance Allowance"  id="conveyanceAllowance" name="conveyanceAllowance"  value="{{company.conveyanceAllowance}}">
+                                    </div>
+                                    <div>
+                                        <input type="number" placeholder="Attendance" id="attendance" name="attendance"  value="{{company.attendance}}">
+                                    </div>
+                                    <div>
+                                        <input type="number" placeholder="Other" id="other" name="other"  value="{{company.other}}">
+                                    </div>
+                                    <div >
+                                      <input type="number" placeholder="Annual Bonus" id="annualBonus" name="annualBonus"  value="{{company.annualBonus}}">
+                                    </div>
+                                    <div class="row" style="margin-top:2%;">
+                                        
+                                    <div class="col-md-6">
+                                        <a class="cancel" href="#"> &nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
+                                    </div> 
+                                            
+                                      
+                                        <div class="col-md-6">
+                                            <button type="submit" class="save"> Update</button>
+                                            {% comment %} <a class="save" href="#"> Next</a> {% endcomment %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+
                     </div>
                 </form>
                 </div>
@@ -125,6 +175,31 @@
         <p>Copyrights 2023 @ Payroll Management System</p>
     </div>
 
+
+    <script>
+        function toggleVisibility(divid) {
+        var x = document.getElementById(divid);  
+        var y = document.getElementById("nextButton");
+
+        if (x.style.display == "none") 
+        {
+          x.style.display = "block";
+          y.style.display = "none";
+          
+        } 
+        else {
+          x.style.display = "none";
+        }  
+        }
+    </script>
+    <script>
+        $("#upload_link").click(function(){
+            $("#fileUp").trigger('click');
+        });
+        $("#upload_color").click(function(){
+            $("#colorUp").trigger('click');
+        });
+    </script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{% static 'js\main.js' %}"></script>

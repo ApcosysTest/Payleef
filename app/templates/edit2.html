@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+{% load static %}
+</head>
+
+<body>
+
+<div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                            <ul id="myTabedu1" class="tab-review-design">
+                                <li class="active"><a href="#description"> Salary Slip</a></li>
+                               
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div id="dropzone1" class="pro-ad">
+
+
+                                                    <form method="POST" class="post-form" action="/update2/{{employee.id}}" enctype="multipart/form-data">  
+                                                                            {% csrf_token %}  
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="inputField">
+                                                                                        <input type="text" placeholder="Employee Code" value="{{employee.emp_code }}">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <input type="text" placeholder="Employee Name" value="{{employee.emp_Name }}">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <input type="text" placeholder="Employee PAN" value="{{employee.emp_PAN }}">
+                                                                                    </div>
+                                                                                    <div >
+                                                                                      <input type="tel" placeholder="Joining Date" value="{{employee.Joining_date }}">
+                                                                                    </div>
+                                                                                    <div >
+                                                                                      <input type="tel" placeholder="Mobile Number" value="{{employee.mobile_no }}">
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="inputField">
+                                                                                        <input type="text" placeholder="Salary" value="{{employee.salary }}">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <input type="number" placeholder="CTC(INR)" value="{{employee.CTC }}">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <input type="text" placeholder="Designation " value="{{employee.designation }}">
+                                                                                    </div>
+                                                                                    <div >
+                                                                                      <input type="text" placeholder="Department"  value="{{employee.department }}">
+                                                                                    </div>
+                                                                                    <div >
+                                                                                      <input type="email" placeholder="E-Mail"  value="{{employee.email }}">
+                                                                                    </div>
+                                                                                   
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="inputField">
+                                                                                        <input type="text" placeholder="Bank Name" value="{{employee.bank_Name }}">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <input type="number" placeholder="Account Number" value="{{employee.bank_Account_No }}">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <input type="text" placeholder="IFSC Code" value="{{employee.IFSC }}">
+                                                                                    </div>
+                                                                                    <div >
+                                                                                      <input type="text" placeholder="Branch" value="{{employee.branch }}">
+                                                                                    </div>
+                                                                                    {% comment %} <div >
+                                                                                      <input type="text" placeholder="Branch" hidden>
+                                                                                    </div> {% endcomment %}
+                                                                                    <div class="row" style="margin-top:2%;">
+                                                                                        <div class="col-md-6">
+                                                                                            {% comment %} <a class="cancel" href="#"> Save</a> {% endcomment %}
+                                                                                            <button type="submit" class="cancel">Update</button>  
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <!-- <a class="discard" href="#"> Disable </a> -->
+                                                                                            <button type="button" class="btn  discard" data-toggle="modal" data-target="#myModal "href='#'> Disable</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </form>  
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+   
+</body>
+
+</html>
+
+</body>  
+</html>  
